@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    tim.h
-  * @brief   This file contains all the function prototypes for
-  *          the tim.c file
+  * @file    iwdg.c
+  * @brief   This file provides code for the configuration
+  *          of the IWDG instances.
   ******************************************************************************
   * @attention
   *
@@ -17,38 +17,39 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __TIM_H__
-#define __TIM_H__
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "iwdg.h"
 
-/* USER CODE BEGIN Includes */
+/* USER CODE BEGIN 0 */
 
-/* USER CODE END Includes */
+/* USER CODE END 0 */
 
-extern TIM_HandleTypeDef htim5;
+IWDG_HandleTypeDef hiwdg;
 
-/* USER CODE BEGIN Private defines */
+/* IWDG init function */
+void MX_IWDG_Init(void)
+{
 
-/* USER CODE END Private defines */
+  /* USER CODE BEGIN IWDG_Init 0 */
 
-void MX_TIM5_Init(void);
+  /* USER CODE END IWDG_Init 0 */
 
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+  /* USER CODE BEGIN IWDG_Init 1 */
 
-/* USER CODE BEGIN Prototypes */
+  /* USER CODE END IWDG_Init 1 */
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_16;
+  hiwdg.Init.Reload = 4000-1;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG_Init 2 */
 
-/* USER CODE END Prototypes */
+  /* USER CODE END IWDG_Init 2 */
 
-#ifdef __cplusplus
 }
-#endif
 
-#endif /* __TIM_H__ */
+/* USER CODE BEGIN 1 */
 
+/* USER CODE END 1 */
