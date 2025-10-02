@@ -61,8 +61,6 @@ void Error_Handler(void);
 #define PWMR_GPIO_Port GPIOH
 #define LEDG_Pin GPIO_PIN_11
 #define LEDG_GPIO_Port GPIOH
-#define KEY_Pin GPIO_PIN_0
-#define KEY_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
